@@ -5,6 +5,10 @@ project(libB)
 option(LIBB_SHARED_LIBS "libB: Build as shared library" ${PROJECT_IS_TOP_LEVEL})
 option(LIBB_INSTALL "libB: Install library" ${PROJECT_IS_TOP_LEVEL})
 
+if (LIBB_INSTALL AND NOT LIBB_SHARED_LIBS)
+    # In order to install libB static library, all dependencies must be installed as well
+    option(LIBA_INSTALL "libB: Override" ON)
+endif ()
 add_subdirectory(third_party/libA)
 
 set(BUILD_SHARED_LIBS ${LIBB_SHARED_LIBS})

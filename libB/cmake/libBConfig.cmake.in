@@ -1,3 +1,10 @@
 @PACKAGE_INIT@
 
+set(LIBB_SHARED_LIBS @LIBB_SHARED_LIBS@)
+
+include(CMakeFindDependencyMacro)
+
+if (NOT LIBB_SHARED_LIBS)
+    find_dependency(libA)
+endif ()
 include(${CMAKE_CURRENT_LIST_DIR}/libBTargets.cmake)

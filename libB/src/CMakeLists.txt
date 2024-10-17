@@ -7,7 +7,7 @@ target_include_directories(libB PUBLIC
         "$<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}>"
         "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}>"
 )
-target_link_libraries(libB PRIVATE $<BUILD_LOCAL_INTERFACE:libA::A>)
+target_link_libraries(libB PRIVATE libA::A)
 set_target_properties(libB PROPERTIES
         OUTPUT_NAME B
         EXPORT_NAME B
